@@ -4,6 +4,8 @@
 #include <iostream>
 #include<list>
 #include <string>
+//#include <Windows.h>
+#include <conio.h>
 
 using namespace std;
 
@@ -19,7 +21,25 @@ int main()
     // grid could possibly be  |_| or .
     // use 2 dimensional arrays for making grid
 
-    int num = 123; string str_num = to_string(num);
+// CHECKS KEY PRESS 
+    //char key;
+    //cout << "press key ";
+    //while (1) {
+    //    key = _getch();
+    //    cout << "key pressed " << key << "\n";
+    //}
+    //////////////////////////////////////////////////////////////////////
+    // 
+    //int num = 123; string str_num = to_string(num);
+
+    //if (GetKeyState('A') & 0x8000/*Check if high-order bit is set (1 << 15)*/)
+    //{
+    //    // Do stuff
+    //    cout << "A WAS PRESSED";
+    //    //TRACE("This is a TRACE statement\n");
+    //    //printf("mdwepp");
+    //    //printf("No data within five seconds.\n");
+    //}
 
 
     // 2d array [4] rows and [3] columns
@@ -41,35 +61,49 @@ int main()
 
     int row;
     int column;
-    string player = "P";
+    
+    string key;
+    string player;
 
+    //string key_press;
     //int a = 20;
     //std::string s = std::to_string(a);
     // or: auto s = std::to_string(a);
 
     for (row = 0; row < 4; row++) {
         for (column = 0; column < 3; column++) {
-            
-            // grid cant acccept data types which arent int
-            //string player = "P";
-            //grid[1][1] = 3;
-            //to_string(grid[1][1]) = "p";
-            //string a = to_string(grid[1][1]) = "P";
-
-            //string str_row = to_string(row);
-            //string str_col = to_string(column);
-            
-            //string f = to_string(grid[4][3]);
+            player = "P";
             grid[1][1] = player;
+            //string b = player(grid[1][1]);
 
-            
-            //cout << "\t" << a;
             cout << "\t" << grid[row][column];
-
-            //cout << "\t" << to_string(grid[row][column]);
         }
         cout << "\n" << "\n";
     }
+
+    // _getch tracks key presses
+    key = _getch(); 
+
+    if (key == "w") {
+        
+        //grid[0][1] = player;
+        //player = grid[0][1];
+        
+        //cout << "\t" << grid[row][column];
+
+
+        for (row = 0; row < 4; row++) {
+            for (column = 0; column < 3; column++) {
+                player = "P";
+                grid[0][1] = player;
+                grid[1][1] = ".";
+                cout << "\t" << grid[row][column];
+            }
+            cout << "\n" << "\n";
+        }
+
+    }
+
 
     // display a player in the grid
     //string player = "P";
