@@ -7,10 +7,7 @@
 #include <windows.h>
 #include <conio.h>
 
-using namespace std;
 
-int main()
-{
     // make a grid
     // make square bracket blocks controls(up down left right) in grid
     // animate blocks moving from up to down in grid
@@ -18,185 +15,88 @@ int main()
     // make blocks stack and place in a row inside grid
     // if row full of blocks then remove them
 
-    // grid could possibly be  |_| or .
-    // use 2 dimensional arrays for making grid
+using namespace std;
 
-    // 2d array [4] rows and [3] columns
-    // actually instead of having a number grid make it a string grid to make life easier with displaying string vlaues becaise
-    // thats what im using
+string player;
+
+
+string grid[4][3] = {
+{".", ".", "."},
+{".", ".", "."},
+{".", ".", "."},
+{".", ".", "."}
+};
+
+
+void display_grid(string _grid[4][3]);
+
+int main()
+{
+
+
     string key;
-    int row; 
-    int column;  
+    int row = 2;
+    int column = 1;
 
+    display_grid(grid);
 
-    string player;
+    //for (int row = 0; row < 4; row++) {
+        //for (int column = 0; column < 3; column++) {
 
+    // make it go up until top
+            
+    // make sure player isnt duplicated when moved(duplicated because of hardcoded value needs to be removed when keypressed)
 
-    string grid[4][3] = {
-    {".", ".", "."},
-    {".", ".", "."},
-    {".", "[]", "."},
-    {".", ".", "."}
-    };
+    while (true) {
+        key = _getch();
 
-    //cout << grid;
+        //if (grid[row][column] == player) {
 
-
-    //string key_press;
-    //int a = 20;
-    //std::string s = std::to_string(a);
-    // or: auto s = std::to_string(a);
-    
-    key = _getch();
-
-    for (row = 0; row < 4; row++) {
-        for (column = 0; column < 3; column++) {
-            //player = "[]";
-            //grid[2][1] = player;
-            if (grid[row][column] == "[]") {
-                if (key == "w") {
-                    std::swap(grid[row][column], grid[row - 1][column]);
-                }
-            }
-            //string b = player(grid[1][1]);
-            cout << "\t" << grid[row][column];
-
+        if (key == "w") {
+            std::swap(grid[row][column], grid[row - 1][column]);
+            row--;
         }
-        cout << "\n" << "\n";
+        if (key == "s") {
+            std::swap(grid[row][column], grid[row + 1][column]);
+            row++;
+        }
 
+        
+        
+        system("CLS");
+        display_grid(grid);
+
+        
     }
 
+                //if (row - 1 >= 0)
+                //{
+                //    std::swap(grid[row][column], grid[row - 1][column]);
+                //    row--;
+                //}
 
-    // make a function outside main function print the grid and reuse it that would solve rendering with keypress problem
-    
-    // ASCII code for 'w' is 0x77 and the ASCII code for 'W' is 0x57
-    //while (true) {
-    //    if (GetAsyncKeyState(0x57)) {
-    //        //cout << "KEY PRESSED";
-    //        //break;
-    //    }
-    //}
-    // 
-
-    //while (true) {
-    //    if (GetKeyState(0x57) & 0x8000) {
-    //        //cout << "KEY PRESSED";
-    //        for (row = 0; row < 4; row++) {
-    //            for (column = 0; column < 3; column++) {
-    //                player = "[]";
-    //                grid[2][1] = player;
-    //                if (grid[row][column] == "[]") {
-    //                    //grid[row][column];
-    //                    //swap(grid[row][column], grid[row - 1][column]);
-    //                }
-    //                //string b = player(grid[1][1]);
-    //                cout << "\t" << grid[row][column];
-
-    //            }
-    //            cout << "\n" << "\n";
-
-    //        }
-
-    //        break;
-    //    }
-
-    //}
-
-
-    //_getch();
-    //key = _getch();
-    //if (key == "w") {
-        //cout << "HELLO";
-        //if (grid[row][column] == ".") {
-        //    for (row = 0; row < 4; row++) {
-        //        for (column = 0; column < 3; column++) {
-        //            cout << "PREFERCT";
-        //            //swap(grid[row][column], grid[row - 1][column]);
-        //            cout << "\t" << grid[row][column];
-
-        //        }
-        //     cout << "\n" << "\n";
-        //    }
-        //}
-        //else {
-        //    cout << "INVALID";
-        //}
-    //}
-    //else {
-        //cout << "INVALID";
-    //}
-
-
-    //key = _getch();
-    //if (key == "w") {
-        //if (grid[row][column] == ".") {
-        //    for (row = 0; row < 4; row++) {
-        //        for (column = 0; column < 3; column++) {
-        //            cout << "PREFERCT";
-        //            //swap(grid[row][column], grid[row - 1][column]);
-        //            cout << "\t" << grid[row][column];
-
-        //        }
-        //     cout << "\n" << "\n";
-        //    }
-        //}
-        //else {
-        //    cout << "INVALID";
-        //}
-    //}
-
-
-    // _getch tracks key presses
-    //key = _getch(); 
-
-    //if (key == "w") {
-        //system("cls");
-        // figure out how to move player up and refresh player value on grid to new location
-        
-        //grid[0][1] = player;
-        //player = grid[0][1];
-        
-        //cout << "\t" << grid[row][column];
-
-        //for (int r = 0; r < 4; r++) {
-        //    //player[r + 1];
-        //    //player = r;
-        //    for (int c = 0; c < 3; c++) {
-
-        //        //player = grid[r+1][c];
-        //        //cout << "\t" << player;
-
-        //        if (grid[r][c] == "[]") {
-        //            // add f strings to non working code belwo
-        //            //swap(grid[r][c], grid[r - 1][c]);
-        //            //grid[r][c] = grid[r - 1][c];
-
-        //        }
-        //        else {
-        //            cout << "INVALID RESPONSE: ";
-        //            //cout << grid[r][c];
-        //        }
-
-        //        cout << "\t" << grid[r][c];
-
-        //    };
-        //    cout << "\n" << "\n";
-        //};
-        //for (row = 0; row < 4; row++) {
-        //    for (column = 0; column < 3; column++) {
-        //        player = "[]";
-        //        grid[0][1] = player;
-        //        //grid[1][1] = ".";
-        //        cout << "\t" << grid[row][column];
-        //    }
-        //    cout << "\n" << "\n";
+                //else {
+                //    cout << "EXIT";
+                //    return(0);
+                //}
         //}
 
     //}
-
-
-
-
-
+    //std::cout << std::endl;
+    //system("PAUSE");
+    //return 0;
 
 };
+
+
+
+void display_grid(string _grid[4][3]) {
+    for ( int row = 0; row < 4; row++) {
+        for ( int column = 0; column < 3; column++) {
+            player = "[]";
+            grid[2][1] = player;
+            cout << "\t" << grid[row][column];
+        }
+        cout << "\n" << "\n";
+    }
+}
