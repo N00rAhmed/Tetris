@@ -60,8 +60,6 @@ int main()
             std::swap(grid[row][column], grid[row + 1][column]);
             row++;
         }
-
-        
         
         system("CLS");
         display_grid(grid);
