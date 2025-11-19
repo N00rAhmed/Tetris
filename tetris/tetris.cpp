@@ -53,12 +53,18 @@ int main()
         //if (grid[row][column] == player) {
 
         if (key == "w") {
-            std::swap(grid[row][column], grid[row - 1][column]);
-            row--;
+            if (row - 1 >= 0) { // stops character from going outside grid
+                swap(grid[row][column], grid[row - 1][column]);
+                row--;
+
+            }
         }
         if (key == "s") {
-            std::swap(grid[row][column], grid[row + 1][column]);
-            row++;
+            if (row + 1 < 4) {
+                swap(grid[row][column], grid[row + 1][column]);
+                row++;
+
+            }
         }
         
         system("CLS");
