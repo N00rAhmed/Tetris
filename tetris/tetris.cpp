@@ -23,7 +23,7 @@ string player;
 string grid[4][3] = {
 {".", ".", "."},
 {".", ".", "."},
-{".", "[]", "."},
+{".", ".", "."},
 {".", ".", "."}
 };
 
@@ -54,6 +54,10 @@ int main()
 
         if (key == "w") {
             if (row - 1 >= 0) { // stops character from going outside grid
+                
+                // remove player value here from grid original location
+
+
                 swap(grid[row][column], grid[row - 1][column]);
                 row--;
 
@@ -80,28 +84,15 @@ int main()
 
             }
         }
+        if (key == "q") {
+            return 0;
+        }
+
         system("CLS");
         display_grid(grid);
 
         
     }
-
-                //if (row - 1 >= 0)
-                //{
-                //    std::swap(grid[row][column], grid[row - 1][column]);
-                //    row--;
-                //}
-
-                //else {
-                //    cout << "EXIT";
-                //    return(0);
-                //}
-        //}
-
-    //}
-    //std::cout << std::endl;
-    //system("PAUSE");
-    //return 0;
 
 };
 
@@ -110,8 +101,8 @@ int main()
 void display_grid(string _grid[4][3]) {
     for ( int row = 0; row < 4; row++) {
         for ( int column = 0; column < 3; column++) {
-            //player = "[]";
-            //grid[2][1] = player;
+            player = "[]";
+            grid[2][1] = player;
             cout << "\t" << grid[row][column];
         }
         cout << "\n" << "\n";
