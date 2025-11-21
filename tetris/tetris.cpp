@@ -7,10 +7,9 @@
 #include <windows.h>
 #include <conio.h>
 
-
-    // make a grid
-    // make square bracket blocks controls(up down left right) in grid
-    // animate blocks moving from up to down in grid
+    // make a grid - DONE
+    // make square bracket blocks controls(up down left right) in grid - IN PROGRESS
+    // animate blocks moving from up to down in grid - NOT STARTED
     // after one block placed generate new block coming from top
     // make blocks stack and place in a row inside grid
     // if row full of blocks then remove them
