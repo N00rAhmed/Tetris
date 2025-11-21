@@ -55,7 +55,7 @@ int main()
         if (key == "w") {
             if (row - 1 >= 0) { // stops character from going outside grid
                 
-                // remove player value here from grid original location
+                // remove player value here from grid original location grid[2][1]
 
 
                 swap(grid[row][column], grid[row - 1][column]);
