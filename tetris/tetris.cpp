@@ -31,10 +31,83 @@ void display_grid(string _grid[4][3]);
 
 int main()
 {
+    //Sleep(1000);
+    //system("CLS");
+    //grid[1][1] = "[]";
+    //Sleep(3000);
+    //system("CLS");
+    //grid[1][1] = "[]";
+    //Sleep(3000);
+    //system("CLS");
+
+    //cout << "x.....";
+    //Sleep(1000);
+    //system("CLS");
+    //cout << ".x....";
+    //Sleep(1000);
+    //system("CLS");
+    //cout << "..x...";
+    //Sleep(1000);
+    //system("CLS");
+    //cout << "...x..";
+    //Sleep(1000);
+    //system("CLS");
+    //cout << "....x.";
+    //Sleep(1000);
+    //system("CLS");
+    //cout << ".....x";
+    //Sleep(2000);
+    //system("CLS");
+
+    string newthing[4][3] = {
+    { "o", "o", "o" },
+    { "o", "o", "o" },
+    { "o", "o", "o" },
+    { "o", "o", "o" }
+}; // 2d array
+
+    //newthing[0][1] = "[]";
+    //Sleep(2000);
+    //system("CLS");
+    //newthing[1][1] = "[]";
+
+    //string a = newthing[0][1] = "[]";
+    //Sleep(2000);
+    //cout << a;
+    //system("CLS");
+    //string b = newthing[1][1] = "[]";
+    //cout << b;
+
+    for (int c = 0; c < 4; c++) {
+        for (int r = 0; r < 3; r++) {
+            //newthing[0][1] = "[]";
+            cout << "\t" << newthing[c][r]; // prints all content of array in single row
+            //Sleep(2000);
+            //system("CLS");
+            //cout << "\t" << newthing[c][r];
+            
+            //Sleep(2000);
+            //system("CLS");
+            //newthing[1][1] = "[]";
+            //cout << "\t" << newthing[c][r];
+        }
+        cout << "\n" << "\n"; // creates rows and spacing between rows
+    }
+    //cout << newthing;
+    
+
+    //string a = newthing[0][1] = "[]";
+    //Sleep(2000);
+    //cout << a;
+    //system("CLS");
+    //string b = newthing[1][1] = "[]";
+    //cout << b;
+    
+    Sleep(10000);
 
 
     string key;
-    int row = 2;
+    int row = 0;
     int column = 1;
 
     display_grid(grid);
@@ -45,6 +118,7 @@ int main()
     // make it go up until top
             
     // make sure player isnt duplicated when moved(duplicated because of hardcoded value needs to be removed when keypressed)
+
 
     while (true) {
         key = _getch();
@@ -98,12 +172,78 @@ int main()
 
 
 void display_grid(string _grid[4][3]) {
+    //player = "[]";
+
+    //grid[0][1] = "[]";
+    //Sleep(3000);
+    //system("CLS");
+
+    //grid[1][1] = "[]";
+    //Sleep(3000);
+    //system("CLS");
+    //
+    //grid[2][1] = "[]";
+
+
     for ( int row = 0; row < 4; row++) {
         for ( int column = 0; column < 3; column++) {
-            player = "[]";
-            grid[2][1] = player;
+            
+            // animation cant work in loop here because grid being rendered at the same time
+
+            //player = "[]";
+
+            //grid[0][1] = player;
+            //
+            //Sleep(1000);
+            //system("CLS");
+            //grid[1][1] = player;
+            
+            //system("CLS");
+
+            grid[0][1] = "[]";
             cout << "\t" << grid[row][column];
+
+            //Sleep(2000);
+            //system("CLS");
+            //grid[1][1] = "[]";
+            //cout << "\t" << grid[row][column];
+
+
+            //grid[0][1] = "[]";
+            //Sleep(3000);
+            //system("CLS");
+
+            //grid[1][1] = "[]";
+            //Sleep(3000);
+            //system("CLS");
+            
+            //grid[2][1] = "[]";
+
         }
         cout << "\n" << "\n";
+
     }
+
+    // Animate
+    //grid[0][1] = player;
+    //Sleep(1000);
+    //system("CLS");
+    //cout << "\t" << grid[0][1];
+
+    //grid[1][1] = player;
+    //Sleep(1000);
+    //system("CLS");
+    //cout << "\t" << grid[1][1];
+
+    //grid[2][1] = player;
+    //Sleep(1000);
+    //system("CLS");
+    //cout << "\t" << grid[2][1];
+
+    //grid[3][1] = player;
+    //Sleep(1000);
+    //system("CLS");
+    //cout << "\t" << grid[3][1];
+
+
 }
