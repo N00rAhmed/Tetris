@@ -25,9 +25,19 @@ string grid[4][3] = {
 {".", ".", "."},
 {".", ".", "."}
 };
+string newthing[4][3] = {
+{ "o", "o", "o" },
+{ "o", "o", "o" },
+{ "o", "o", "o" },
+{ "o", "o", "o" }
+}; // 2d array
+
 
 
 void display_grid(string _grid[4][3]);
+void A(string _gridd[4][3]);
+
+//A(string _gridd[4][3])
 
 int main()
 {
@@ -59,12 +69,6 @@ int main()
     //Sleep(2000);
     //system("CLS");
 
-    string newthing[4][3] = {
-    { "o", "o", "o" },
-    { "o", "o", "o" },
-    { "o", "o", "o" },
-    { "o", "o", "o" }
-}; // 2d array
 
     //newthing[0][1] = "[]";
     //Sleep(2000);
@@ -78,23 +82,62 @@ int main()
     //string b = newthing[1][1] = "[]";
     //cout << b;
 
-    for (int c = 0; c < 4; c++) {
-        for (int r = 0; r < 3; r++) {
-            //newthing[0][1] = "[]";
-            cout << "\t" << newthing[c][r]; // prints all content of array in single row
-            //Sleep(2000);
-            //system("CLS");
-            //cout << "\t" << newthing[c][r];
-            
-            //Sleep(2000);
-            //system("CLS");
-            //newthing[1][1] = "[]";
-            //cout << "\t" << newthing[c][r];
-        }
-        cout << "\n" << "\n"; // creates rows and spacing between rows
-    }
-    //cout << newthing;
+    //Sleep(2000);
+    //newthing[0][1] = "[]";
+    //Sleep(2000);
+    //newthing[1][1] = "[]";
+    //Sleep(2000);
+    //newthing[2][1] = "[]";
+
+
+    //newthing[0][1] = "[]";
+    //cout << newthing[0][1];
+    //cout << "index 1 = " << newthing[0][1];
+    //Sleep(2000);
+    //newthing[1][1] = "[]";
+    //cout << newthing[1][1];
+    //cout << "index 2 = " << newthing[1][1];
+    //Sleep(2000);
+    //newthing[2][1] = "[]";
+    //cout << newthing[2][1];
+    //cout << "index 3 = " << newthing[2][1];
+    //A();
+
+    newthing[0][1] = "[]";
+    A(newthing);
+    system("CLS");
+
+    A(newthing);
+    Sleep(1000);
+    newthing[1][1] = "[]";
+    system("CLS");
     
+    //Sleep(2000);
+    //newthing[2][2] = "[]";
+    A(newthing);
+    Sleep(1000);  
+    newthing[2][1] = "[]";
+    system("CLS");
+    A(newthing);
+
+    system("CLS");
+
+    A(newthing);
+    Sleep(1000);
+    newthing[3][1] = "[]";
+    system("CLS");
+    A(newthing);
+    //system("CLS");
+
+    //A(newthing);
+    //Sleep(1000);
+    //newthing[2][1] = "[]";
+    //cout << newthing[2][1];
+    //system("CLS");
+
+
+
+
 
     //string a = newthing[0][1] = "[]";
     //Sleep(2000);
@@ -169,6 +212,30 @@ int main()
 
 };
 
+void A(string _gridd[4][3]) {
+
+    for (int c = 0; c < 4; c++) {
+        for (int r = 0; r < 3; r++) {
+
+            cout << "\t" << newthing[c][r]; // prints all content of array in single row
+
+
+            //Sleep(2000);
+            //system("CLS");
+            //cout << "\t" << newthing[c][r];
+
+            //Sleep(2000);
+            //system("CLS");
+            //newthing[1][1] = "[]";
+            //cout << "\t" << newthing[c][r];
+        }
+
+        cout << "\n" << "\n"; // creates rows and spacing between rows
+
+    }
+    //cout << newthing;
+
+}
 
 
 void display_grid(string _grid[4][3]) {
