@@ -11,7 +11,7 @@
 
     // make a grid - DONE
     // make square bracket blocks controls(up down left right) in grid - IN PROGRESS
-    // animate blocks moving from up to down in grid - IN REVIEW
+    // animate blocks moving from up to down in grid - (for now id say move on to more important things because youve gotten animation to work)
     // after one block placed generate new block coming from top
     // make blocks stack and place in a row inside grid
     // if row full of blocks then remove them
@@ -86,34 +86,35 @@ void moveToLocation(int x, int y)
 int main()
 {
 
-    moveToLocation(0, 1);
-    Sleep(1000);
-    moveToLocation(1, 1);
-    Sleep(1000);
-    moveToLocation(2, 1);
-    Sleep(1000);
-    moveToLocation(3, 1);
-
-    Sleep(10000);
+    //moveToLocation(0, 1);
+    //Sleep(1000);
+    //moveToLocation(1, 1);
+    //Sleep(1000);
+    //moveToLocation(2, 1);
+    //Sleep(1000);
+    //moveToLocation(3, 1);
+    //Sleep(10000);
 
 
     string key;
     int row = 0;
     int column = 1;
+    grid[row][column] = "[]";
+
+    //player = "[]";
 
     display_grid(grid);
-
 
     while (true) {
         key = _getch();
 
         //if (grid[row][column] == player) {
-
+        
         if (key == "w") {
             if (row - 1 >= 0) { // stops character from going outside grid
                 
                 // remove player value here from grid original location grid[2][1]
-
+                //grid[row][column] = "[]";
 
                 swap(grid[row][column], grid[row - 1][column]);
                 row--;
@@ -156,9 +157,10 @@ int main()
 
 
 void display_grid(string _grid[4][3]) {
+    
     for ( int row = 0; row < 4; row++) {
         for ( int column = 0; column < 3; column++) {
-            grid[0][1] = "[]";
+            //grid[0][1] = "[]";
             cout << "\t" << grid[row][column];
         }
         cout << "\n" << "\n";
