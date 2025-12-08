@@ -97,8 +97,10 @@ int main()
 
 
     string key;
+    
     int row = 0;
     int column = 1;
+
     grid[row][column] = "[]";
 
     //player = "[]";
@@ -108,40 +110,61 @@ int main()
     while (true) {
         key = _getch();
 
-        //if (grid[row][column] == player) {
-        
-        if (key == "w") {
-            if (row - 1 >= 0) { // stops character from going outside grid
-                
-                // remove player value here from grid original location grid[2][1]
-                //grid[row][column] = "[]";
 
-                swap(grid[row][column], grid[row - 1][column]);
-                row--;
+        //if (key == "w") {
+        //    if (row - 1 >= 0) { // stops character from going outside grid
+        //        swap(grid[row][column], grid[row - 1][column]);
+        //        row--;
+        //    }
+        //}
 
-            }
-        }
+        // make block place at the bottom and freeze in location
+        // could add condition in other controls
         if (key == "s") {
             if (row + 1 < 4) {
                 swap(grid[row][column], grid[row + 1][column]);
                 row++;
-
+            }
+            if (row == 3) {
+                row = 0;
+                column = 1;
+                //grid[0][1] = "[]";
+                grid[row][column] = "[]";
+                
+                // 
+                //swap(grid[row][column], grid[row - 1][column]);
+                //row--;                
             }
         }
         if (key == "d") {
-            if (column + 1 < 3) { // stops character from going outside grid
+            
+            if (row == 3) {
+                grid[row];
+                // 
+                //swap(grid[row][column], grid[row][column - 1]);
+                //column--;
+            }
+
+            else if (column + 1 < 3) { // stops character from going outside grid
                 swap(grid[row][column], grid[row][column + 1]);
                 column++;
-
             }
         }
         if (key == "a") {
-            if (column - 1 >= 0) {
+            if (row == 3) {
+                //swap(grid[row][column], grid[row][column + 1]);
+                //column++;
+                grid[row];
+                //grid[row][column];
+            }
+
+            else if (column - 1 >= 0) {
                 swap(grid[row][column], grid[row][column - 1]);
                 column--;
-
             }
         }
+
+
         if (key == "q") {
             return 0;
         }
