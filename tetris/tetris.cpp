@@ -12,9 +12,9 @@
     // make a grid - DONE
     // make square bracket blocks controls(up down left right) in grid - IN PROGRESS
     // animate blocks moving from up to down in grid - (for now id say move on to more important things because youve gotten animation to work)
-    // after one block placed generate new block coming from top
-    // make blocks stack and place in a row inside grid
-    // if row full of blocks then remove them
+    // after one block placed generate new block coming from top - DONE
+    // make blocks stack and place in a row inside grid - IN PROGRESS
+    // if row full of blocks then remove them - 
 
 using namespace std;
 
@@ -137,7 +137,7 @@ int main()
             }
         }
         if (key == "d") {
-            
+
             if (row == 3) {
                 grid[row];
                 // 
@@ -163,6 +163,25 @@ int main()
                 column--;
             }
         }
+
+        //row = 3;
+        //column = 0;
+        //grid[row][column] = "[]";
+        //if (grid == [row][column]) {
+        //
+        // make blocks dissapear when row is filled
+        // check index 0 - 2 of [row]
+             
+
+        //for (int row = 0; row < 4; row++) {
+            //for (int column = 0; column < 3; column++) {
+                
+                //cout << "\t" << grid[row][column];
+
+            //}
+            //cout << "\n" << "\n";
+        //}
+
 
 
         if (key == "q") {
