@@ -141,11 +141,27 @@ int main()
                 //grid[row+3][column-1] = "-";
 
                 //Sleep(1000);
-
-
+                // 
                 // 
                 //swap(grid[row][column], grid[row - 1][column]);
                 //row--;                
+            }
+            //Sleep(1000);
+
+            if (grid[3][2] == "[]") {
+                //row = 3;
+                //column = 2;
+                //Sleep(1000);
+                //grid[row + 3][column + 1] = "-";
+                //Sleep(1000);
+                //grid[row + 3][column + 1] = "+";
+
+                grid[3][2] = "-";
+                
+                //Sleep(1000);
+                
+                grid[3][1] = "+";
+
             }
 
             //row = 3;
@@ -211,44 +227,30 @@ int main()
         //string v;
         //Sleep(1000);
         //v = grid[3][2];
+        // 
+        //if (grid[3][0] == "[]" and grid[3][1] == "[]" and grid[3][2] == "[]") {
+        // 
 
-        if (grid[3][0] == "[]" and grid[3][1] == "[]" and grid[3][2] == "[]") {
+        int ro = 0;
+        int col = 0;
+        //string b = Sleep(1000);
+        // maybe do if certain time has passed then execute this if statement in if statement
+        // do a test of making a [] display for few seconds in grid and then changing back to a dot 
+        if (grid[ro + 3][col + 0] == "[]" and grid[ro + 3][col + 1] == "[]") {
+
             //Sleep(1000);
-            grid[row + 3][column - 1] = "-";
-            grid[row + 3][column + 0] = "-";
-            grid[row + 3][column + 1] = "-";
-        }
-
-
-        //row = 3;
-        //column = 0;
-        //// and grid[row][column+1] == "[]"
-        //if (grid[row][column] == "[]") {
-            //system("CLS");
-            //grid[row][column] == ".";
-        //}
-        //if (grid[row = 3][column = 0] == "[]") {
-        //    system("CLS");
-        //    grid[row][column] == "+";
+            //break;
+            //int ro = 0;
+            //int col = 0;
+            //Sleep(1000);
+            
+            grid[ro + 3][col + 0] = "-";
+            grid[ro + 3][col + 1] = "-";
+            //grid[ro + 3][col + 2] = "-";
 
         //}
 
-        //grid[row][column] = "[]";
-        //if (grid == [row][column]) {
-        //
-        // make blocks dissapear when row is filled
-        // check index 0 - 2 of [row]
 
-
-
-        //for (int row = 0; row < 4; row++) {
-            //for (int column = 0; column < 3; column++) {
-                
-                //cout << "\t" << grid[row][column];
-
-            //}
-            //cout << "\n" << "\n";
-        //}
 
 
 
@@ -275,4 +277,23 @@ void display_grid(string _grid[4][3]) {
         }
         cout << "\n" << "\n";
     }
+
+    //int ro = 0;
+    //int col = 0;
+
+    //// do a test of making a [] display for few seconds in grid and then changing back to a dot 
+    //if (grid[ro + 3][col + 0] == "[]" and grid[ro + 3][col + 1] == "[]") {
+
+    //    //Sleep(1000);
+    //    //break;
+    //    //int ro = 0;
+    //    //int col = 0;
+    //    //Sleep(1000);
+
+    //    grid[ro + 3][col + 0] = "-";
+    //    grid[ro + 3][col + 1] = "-";
+    //    //grid[ro + 3][col + 2] = "-";
+
+    //}
+
 }
