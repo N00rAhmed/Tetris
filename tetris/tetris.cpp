@@ -108,6 +108,8 @@ int main()
     display_grid(grid);
 
     while (true) {
+
+
         key = _getch();
 
 
@@ -123,23 +125,55 @@ int main()
         if (key == "s") {
             if (row + 1 < 4) {
                 swap(grid[row][column], grid[row + 1][column]);
+
+                //Sleep(1000);
                 row++;
+                //Sleep(1000);
+
             }
             if (row == 3) {
                 row = 0;
                 column = 1;
                 //grid[0][1] = "[]";
                 grid[row][column] = "[]";
-                
+
+
+                //grid[row+3][column-1] = "-";
+
+                //Sleep(1000);
+
+
                 // 
                 //swap(grid[row][column], grid[row - 1][column]);
                 //row--;                
             }
+
+            //row = 3;
+            //column = 0;
+            // and grid[row][column+1] == "[]"
+            //if (grid[row=3][column=0] == "[]") {
+                //system("CLS");
+                //grid[row][column] == ".";
+            //}
+            //if (grid[row][column] = ) {
+                //grid[row][column] == ".";
+            //}
+
+            //int ro = 3;
+            //int co = 0;
+
+            //if (grid[ro][co] == "[]" and grid[ro][co+1] == "[]") {
+            //    system("CLS");
+            //    grid[ro][co] == "+";
+            //    cout << "\t" << grid[ro][co];
+            //}
+
         }
         if (key == "d") {
 
             if (row == 3) {
-                grid[row];
+                //grid[row];
+                grid[row][column];
                 // 
                 //swap(grid[row][column], grid[row][column - 1]);
                 //column--;
@@ -154,8 +188,8 @@ int main()
             if (row == 3) {
                 //swap(grid[row][column], grid[row][column + 1]);
                 //column++;
-                grid[row];
-                //grid[row][column];
+                //grid[row];
+                grid[row][column];
             }
 
             else if (column - 1 >= 0) {
@@ -164,14 +198,48 @@ int main()
             }
         }
 
+        //int ro = 3;
+        //int co = 0;
+
+        //if (grid[ro][co] == "[]" ) {
+        //    //system("CLS");
+        //    grid[ro][co] == "+";
+        //    cout << "\t" << grid[ro][co];
+        //}
+        //grid[0][1] = "[]";
+        //Sleep(1000);
+        //string v;
+        //Sleep(1000);
+        //v = grid[3][2];
+
+        if (grid[3][0] == "[]" and grid[3][1] == "[]" and grid[3][2] == "[]") {
+            //Sleep(1000);
+            grid[row + 3][column - 1] = "-";
+            grid[row + 3][column + 0] = "-";
+            grid[row + 3][column + 1] = "-";
+        }
+
+
         //row = 3;
         //column = 0;
+        //// and grid[row][column+1] == "[]"
+        //if (grid[row][column] == "[]") {
+            //system("CLS");
+            //grid[row][column] == ".";
+        //}
+        //if (grid[row = 3][column = 0] == "[]") {
+        //    system("CLS");
+        //    grid[row][column] == "+";
+
+        //}
+
         //grid[row][column] = "[]";
         //if (grid == [row][column]) {
         //
         // make blocks dissapear when row is filled
         // check index 0 - 2 of [row]
-             
+
+
 
         //for (int row = 0; row < 4; row++) {
             //for (int column = 0; column < 3; column++) {
