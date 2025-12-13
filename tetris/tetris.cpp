@@ -148,7 +148,7 @@ int main()
             }
             //Sleep(1000);
 
-            if (grid[3][2] == "[]") {
+            //if (grid[3][2] == "[]") {
                 //row = 3;
                 //column = 2;
                 //Sleep(1000);
@@ -156,13 +156,11 @@ int main()
                 //Sleep(1000);
                 //grid[row + 3][column + 1] = "+";
 
-                grid[3][2] = "-";
-                
-                //Sleep(1000);
-                
-                grid[3][1] = "+";
+                //grid[3][2] = "-";
+                                
+                //grid[3][1] = "+";
 
-            }
+            //}
 
             //row = 3;
             //column = 0;
@@ -236,18 +234,18 @@ int main()
         //string b = Sleep(1000);
         // maybe do if certain time has passed then execute this if statement in if statement
         // do a test of making a [] display for few seconds in grid and then changing back to a dot 
-        if (grid[ro + 3][col + 0] == "[]" and grid[ro + 3][col + 1] == "[]") {
+        if (grid[ro + 3][col + 0] == "[]" and grid[ro + 3][col + 1] == "[]" and grid[ro + 3][col + 2] == "[]") {
 
             //Sleep(1000);
             //break;
             //int ro = 0;
             //int col = 0;
             //Sleep(1000);
-            
+
             grid[ro + 3][col + 0] = "-";
             grid[ro + 3][col + 1] = "-";
-            //grid[ro + 3][col + 2] = "-";
-
+            grid[ro + 3][col + 2] = "-";
+        }
         //}
 
 
@@ -266,18 +264,20 @@ int main()
 
 };
 
-
+//void skibidi() {
+    //cout << "mdopwemo";
+//};
 
 void display_grid(string _grid[4][3]) {
-    
-    for ( int row = 0; row < 4; row++) {
-        for ( int column = 0; column < 3; column++) {
+
+    for (int row = 0; row < 4; row++) {
+        for (int column = 0; column < 3; column++) {
             //grid[0][1] = "[]";
             cout << "\t" << grid[row][column];
         }
         cout << "\n" << "\n";
     }
-
+};
     //int ro = 0;
     //int col = 0;
 
@@ -296,4 +296,4 @@ void display_grid(string _grid[4][3]) {
 
     //}
 
-}
+//}
