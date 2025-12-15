@@ -6,6 +6,9 @@
 #include <string>
 #include <windows.h>
 #include <conio.h>
+#include <thread>
+#include <ctime>
+#include <chrono>
 
 
 
@@ -50,6 +53,8 @@ void display_grid(string _grid[4][3]);
 //    }
 //}
 
+
+// the if statement code might be able to create a delay if i can add animation movement which creates a delay so work on adding downwards animation
 
 string newthing[4][3];
 
@@ -100,7 +105,8 @@ int main()
     
     int row = 0;
     int column = 1;
-
+    
+    
     grid[row][column] = "[]";
 
     //player = "[]";
@@ -109,6 +115,21 @@ int main()
 
     while (true) {
 
+        //this_thread::sleep_for(50ms); // Small Step = 1 Game Tick
+        //nSpeedCount++;  
+        //bForceDown = (nSpeedCount == nSpeed);
+
+        //if (bForceDown) {
+
+        //    // Update difficulty every 50 pieces
+        //    nSpeedCount = 0;
+        //    nPieceCount++;
+        //    if (nPieceCount % 50 == 0)
+        //        if (nSpeed >= 10) nSpeed--;
+
+        //    swap(grid[row][column], grid[row + 1][column]);
+        //    row++;
+        //}
 
         key = _getch();
 
@@ -229,11 +250,28 @@ int main()
         //if (grid[3][0] == "[]" and grid[3][1] == "[]" and grid[3][2] == "[]") {
         // 
 
+
+
+        //if (bForceDown) {
+
+        //    // Update difficulty every 50 pieces
+        //    nSpeedCount = 0;
+        //    nPieceCount++;
+        //    if (nPieceCount % 50 == 0)
+        //        if (nSpeed >= 10) nSpeed--;
+
+        //    swap(grid[row][column], grid[row + 1][column]);
+        //    row++;
+        //}
+
+
         int ro = 0;
         int col = 0;
         //string b = Sleep(1000);
         // maybe do if certain time has passed then execute this if statement in if statement
         // do a test of making a [] display for few seconds in grid and then changing back to a dot 
+
+
         if (grid[ro + 3][col + 0] == "[]" and grid[ro + 3][col + 1] == "[]" and grid[ro + 3][col + 2] == "[]") {
 
             //Sleep(1000);
@@ -241,14 +279,13 @@ int main()
             //int ro = 0;
             //int col = 0;
             //Sleep(1000);
+            /*this_thread::sleep_for(400ms);*/
 
             grid[ro + 3][col + 0] = "-";
             grid[ro + 3][col + 1] = "-";
             grid[ro + 3][col + 2] = "-";
         }
         //}
-
-
 
 
 
