@@ -30,23 +30,21 @@ string player;
 //{".", ".", "."},
 //{".", ".", "."}
 //};
+
 string grid[4][3];
 
-//void display_grid(string _grid[4][3]);
+//void display_grid(string _grid[4][3], int r, int c) {
 
-void display_grid(string _grid[4][3], int r, int c) {
+void display_grid(string _grid[4][3]) {
 
-    //std::cout << "\x1B[2J\x1B[H";  // clear the console
     for (int row = 0; row < 4; row++) {
         for (int column = 0; column < 3; column++) {
-            //grid[0][1] = "[]";
             grid[row][column] = ".";
-            //cout << "\t" << grid[row][column];
         }
-        //cout << "\n" << "\n";
     }
 
-    grid[r][c] = "[]";
+    //grid[r][c] = "[]";
+    grid[0][1] = "[]";
 
     for (int row = 0; row < 4; row++) {
         for (int column = 0; column < 3; column++) {
@@ -55,73 +53,13 @@ void display_grid(string _grid[4][3], int r, int c) {
         }
         cout << "\n" << "\n";
     }
-    //grid[0][1] = "[]";
 
 };
-
-//string grid[4][3];
-//void display_grid(int x, int y) {
-//    for (int row = 0; row < 4; row++) {
-//        for (int column = 0; column < 3; column++) {
-//            grid[row][column] = ".";
-//        }
-//    }
-//
-//    grid[x][y] = "[]";
-//
-//    for (int row = 0; row < 4; row++) {
-//        for (int column = 0; column < 3; column++) {
-//            cout << "\t" << grid[row][column];
-//        }
-//        cout << "\n" << "\n";
-//    }
-//}
-
-
-// the if statement code might be able to create a delay if i can add animation movement which creates a delay so work on adding downwards animation
-
-string newthing[4][3];
-
-
-void A(int x, int y) {
-
-    system("CLS");
-    for (int c = 0; c < 4; c++) {
-        for (int r = 0; r < 3; r++) {
-            newthing[c][r] = "o";
-        }
-    }
-    newthing[x][y] = "[]";
-
-    for (int c = 0; c < 4; c++) {
-        for (int r = 0; r < 3; r++) {
-            cout << "\t" << newthing[c][r];
-        }
-        cout << "\n" << "\n";
-    }
-
-}
-
-void moveToLocation(int x, int y)
-{
-    //A(x - 1, y);
-    A(x, y);
-}
 
 
 
 int main()
 {
-
-    //moveToLocation(0, 1);
-    //Sleep(1000);
-    //moveToLocation(1, 1);
-    //Sleep(1000);
-    //moveToLocation(2, 1);
-    //Sleep(1000);
-    //moveToLocation(3, 1);
-    //Sleep(10000);
-    //grid[4][3];
 
     string key;
     
@@ -132,25 +70,19 @@ int main()
     //grid[row][column];
 
     for (int ro = 0; ro < 4; ro++) {
-      
+
         system("CLS");
-        //std::cout << "\x1B[2J\x1B[H";
-        display_grid(grid, ro, column);
+        
+        //display_grid(grid, ro, column);
+        display_grid(grid);
 
         std::this_thread::sleep_for(1000ms);
-
-        //c += r % 2 == 0 ? 1 : -1;
-        //grid[0 + 1][1] = "[]";
-        //grid[r + 1][column] = "[]";
-        //column += 1;
         
-        //ro += 1;
         grid[ro + 1][column];
-
-        //column += r % 2 == 0 ? 1 : -1;
-        //grid[row + 1][column] = "[]";
+        //grid[0 + 1][1];
 
     }
+
     while (true) {
 
         key = _getch();
@@ -204,18 +136,10 @@ int main()
 
         system("CLS");
         //display_grid(grid);
-        display_grid(grid, ro, column);
+        //display_grid(grid, ro, column);
+        display_grid(grid);
     }
 
 };
 
-//void display_grid(string _grid[4][3]) {
-//
-//    for (int row = 0; row < 4; row++) {
-//        for (int column = 0; column < 3; column++) {
-//            //grid[0][1] = "[]";
-//            cout << "\t" << grid[row][column];
-//        }
-//        cout << "\n" << "\n";
-//    }
-//};
+
