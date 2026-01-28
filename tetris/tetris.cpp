@@ -24,27 +24,27 @@ using namespace std;
 string player;
 
 
-//string grid[4][3] = {
-//{".", ".", "."},
-//{".", ".", "."},
-//{".", ".", "."},
-//{".", ".", "."}
-//};
+string grid[4][3] = {
+{".", ".", "."},
+{".", ".", "."},
+{".", ".", "."},
+{".", ".", "."}
+};
 
-string grid[4][3];
+//string grid[4][3];
 
 //void display_grid(string _grid[4][3], int r, int c) {
 
 void display_grid(string _grid[4][3]) {
 
-    for (int row = 0; row < 4; row++) {
-        for (int column = 0; column < 3; column++) {
-            grid[row][column] = ".";
-        }
-    }
+    //for (int row = 0; row < 4; row++) {
+    //    for (int column = 0; column < 3; column++) {
+    //        grid[row][column] = ".";
+    //    }
+    //}
 
     //grid[r][c] = "[]";
-    grid[0][1] = "[]";
+    //grid[0][1] = "[]";
 
     for (int row = 0; row < 4; row++) {
         for (int column = 0; column < 3; column++) {
@@ -66,24 +66,31 @@ int main()
     int row = 0;
     int column = 1;
     
-    //grid[row][column] = "[]";
+    grid[row][column] = "[]";
+
+    display_grid(grid);
+
     //grid[row][column];
+    // 
+    //Animation of blocks 
+    //for (int ro = 0; ro < 4; ro++) {
 
-    for (int ro = 0; ro < 4; ro++) {
+        //system("CLS");
+    
+        //grid[ro][column] = "[]";
 
-        system("CLS");
-        
         //display_grid(grid, ro, column);
-        display_grid(grid);
+    //    display_grid(grid);
 
-        std::this_thread::sleep_for(1000ms);
-        
-        grid[ro + 1][column];
+        //std::this_thread::sleep_for(1000ms);
+    //    
+        //grid[ro + 1][column];
         //grid[0 + 1][1];
-
-    }
+    //}
 
     while (true) {
+
+        //string key;
 
         key = _getch();
 
