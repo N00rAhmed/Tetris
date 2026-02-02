@@ -24,26 +24,33 @@ using namespace std;
 string player;
 
 
-string grid[4][3] = {
-{".", ".", "."},
-{".", ".", "."},
-{".", ".", "."},
-{".", ".", "."}
-};
+// refactoring grid logic will make it easier to use animation in main()
 
-//string grid[4][3];
+//string grid[4][3] = {
+//{".", ".", "."},
+//{".", ".", "."},
+//{".", ".", "."},
+//{".", ".", "."}
+//};
 
-//void display_grid(string _grid[4][3], int r, int c) {
+string grid[4][3];
 
-void display_grid(string _grid[4][3]) {
+void display_grid(string _grid[4][3], int r, int c) {
 
-    //for (int row = 0; row < 4; row++) {
-    //    for (int column = 0; column < 3; column++) {
-    //        grid[row][column] = ".";
-    //    }
+//void display_grid(string _grid[4][3]) {
+
+    for (int row = 0; row < 4; row++) {
+        for (int column = 0; column < 3; column++) {
+            grid[row][column] = ".";
+        }
+    }
+
+    grid[r][c] = "[]";
+
+    //if (grid[r][c] == grid[3][c]) {
+    //    grid[3][c] = "[]";
     //}
 
-    //grid[r][c] = "[]";
     //grid[0][1] = "[]";
 
     for (int row = 0; row < 4; row++) {
@@ -66,10 +73,12 @@ int main()
     int row = 0;
     int column = 1;
     
-    grid[row][column] = "[]";
+    //grid[row][column] = "[]";
 
-    display_grid(grid);
-    //display_grid(grid, row, column);
+    //display_grid(grid);
+
+    // arguments here setting the location of []
+    display_grid(grid, row, column);
 
 
     while (true) {
@@ -79,7 +88,7 @@ int main()
         key = _getch();
 
         // CLS, Call Grid Function, Sleep, Increment grid[ro + 1][column];
-
+        // think methodically
 
 
 
@@ -88,12 +97,20 @@ int main()
                 swap(grid[row][column], grid[row + 1][column]);
                 row++;
             }
+        
+            // s isnt properly working beacause of this condition. when [] on row == 3 final row the values of arguments update setting 
+            // the value to dissapear from bottom row and appear at top becuase arguments update
+            // maybe store [] of row index 3 in a variable or dict
             if (row == 3) {
+
+                //grid[3][1] = "[]";
+
                 row = 0;
                 column = 1;
                 grid[row][column] = "[]";
             }
         }
+
         if (key == "d") {
 
             if (row == 3) {
@@ -131,8 +148,8 @@ int main()
         }
 
         system("CLS");
-        display_grid(grid);
-        //display_grid(grid, ro, column);
+        //display_grid(grid);
+        display_grid(grid, row, column);
         //display_grid(grid);
     }
 
