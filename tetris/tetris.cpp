@@ -39,11 +39,11 @@ void display_grid(string _grid[4][3], int r, int c) {
 
 //void display_grid(string _grid[4][3]) {
 
-    for (int row = 0; row < 4; row++) {
-        for (int column = 0; column < 3; column++) {
-            grid[row][column] = ".";
-        }
-    }
+    //for (int row = 0; row < 4; row++) {
+    //    for (int column = 0; column < 3; column++) {
+    //        grid[row][column] = ".";
+    //    }
+    //}
 
     grid[r][c] = "[]";
 
@@ -67,6 +67,12 @@ void display_grid(string _grid[4][3], int r, int c) {
 
 int main()
 {
+
+    for (int row = 0; row < 4; row++) {
+        for (int column = 0; column < 3; column++) {
+            grid[row][column] = ".";
+        }
+    }
 
     string key;
     
@@ -104,16 +110,29 @@ int main()
             if (row == 3) {
 
                 //grid[3][1] = "[]";
+                //grid[row = 3][column] = "[]";
+
+                cout << "row index: " << row << "\n" << "column index: " << column;
+
+                //int rr = 3;
+                //int cc = 1;
+                //grid[row = 3][column=1] = "[]";
+                // how to make copy of [] on row 3 location in grid
 
                 row = 0;
                 column = 1;
-                grid[row][column] = "[]";
+                grid[row][column] = "[]"; // brings [] to the top
+                
+                //display_grid(grid, row=0, column=1);
+                
+                //grid[row=3][column] = "[]";
+
             }
         }
 
         if (key == "d") {
 
-            if (row == 3) {
+            if (row == 3) { // i think stops block placed alread at bottom from moving
                 grid[row][column];
             }
 
