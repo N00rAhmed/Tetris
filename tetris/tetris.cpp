@@ -69,30 +69,59 @@ int main()
     grid[row][column] = "[]";
 
     display_grid(grid);
+    //display_grid(grid, row, column);
 
     //grid[row][column];
     // 
     //Animation of blocks 
-    //for (int ro = 0; ro < 4; ro++) {
-
-        //system("CLS");
-    
-        //grid[ro][column] = "[]";
-
-        //display_grid(grid, ro, column);
-    //    display_grid(grid);
-
-        //std::this_thread::sleep_for(1000ms);
-    //    
-        //grid[ro + 1][column];
-        //grid[0 + 1][1];
-    //}
 
     while (true) {
 
         //string key;
 
         key = _getch();
+
+        // CLS, Call Grid Function, Sleep, Increment grid[ro + 1][column];
+        // maybe try seperating animation into diffrent c++ project to experiement more
+        //for (int ro = 0; ro < 4; ro++) {
+            //system("CLS");
+            //int row = 0;
+            //int column = 1;
+            //grid[row][column] = "[]";
+
+            //display_grid(grid);
+            //std::this_thread::sleep_for(1000ms);
+            //grid[ro + 1][column];
+        //}
+
+        //for (int ro = 0; ro < 4; ro++) {
+
+        //    //system("CLS");
+        //    //display_grid(grid, ro, column);
+        //    //std::this_thread::sleep_for(1000ms);
+        //    //grid[ro + 1][column];
+
+
+        //    if (key == "d") {
+        //         if (column + 1 < 3) { // stops character from going outside grid
+        //            swap(grid[row][column], grid[row][column + 1]);
+        //            column++;
+        //         }
+        //    }
+
+        //    if (key == "a") {
+        //         if (column - 1 >= 0) {
+        //            swap(grid[row][column], grid[row][column - 1]);
+        //            column--;
+        //        }
+        //    }
+
+        //    system("CLS");
+        //    display_grid(grid, ro, column);
+        //    std::this_thread::sleep_for(1000ms);
+        //    grid[ro + 1][column];
+
+        //}
 
         if (key == "s") {
             if (row + 1 < 4) {
@@ -142,9 +171,9 @@ int main()
         }
 
         system("CLS");
-        //display_grid(grid);
-        //display_grid(grid, ro, column);
         display_grid(grid);
+        //display_grid(grid, ro, column);
+        //display_grid(grid);
     }
 
 };
