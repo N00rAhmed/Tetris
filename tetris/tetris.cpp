@@ -12,8 +12,8 @@
 
 
     // make a grid - DONE
-    // make square bracket blocks controls(up down left right) in grid - IN PROGRESS
-    // animate blocks moving from up to down in grid - (for now id say move on to more important things because youve gotten animation to work)
+    // make square bracket blocks controls(up down left right) in grid - DONE
+    // animate blocks moving from up to down in grid - 
     // after one block placed generate new block coming from top - DONE
     // make blocks stack and place in a row inside grid - IN PROGRESS
     // if row full of blocks then remove them - IN PROGRESS
@@ -39,19 +39,14 @@ void display_grid(string _grid[4][3], int r, int c) {
 
 //void display_grid(string _grid[4][3]) {
 
-    //for (int row = 0; row < 4; row++) {
-    //    for (int column = 0; column < 3; column++) {
-    //        grid[row][column] = ".";
-    //    }
-    //}
+    for (int row = 0; row < 4; row++) {
+        for (int column = 0; column < 3; column++) {
+            grid[row][column] = ".";
+        }
+    }
 
     grid[r][c] = "[]";
 
-    //if (grid[r][c] == grid[3][c]) {
-    //    grid[3][c] = "[]";
-    //}
-
-    //grid[0][1] = "[]";
 
     for (int row = 0; row < 4; row++) {
         for (int column = 0; column < 3; column++) {
@@ -68,108 +63,92 @@ void display_grid(string _grid[4][3], int r, int c) {
 int main()
 {
 
-    for (int row = 0; row < 4; row++) {
-        for (int column = 0; column < 3; column++) {
-            grid[row][column] = ".";
-        }
-    }
+    //for (int row = 0; row < 4; row++) {
+    //    for (int column = 0; column < 3; column++) {
+    //        grid[row][column] = ".";
+    //    }
+    //}
 
+    //int counter = 0;
+    
     string key;
     
     int row = 0;
     int column = 1;
+    
     
     //grid[row][column] = "[]";
 
     //display_grid(grid);
 
     // arguments here setting the location of []
-    display_grid(grid, row, column);
+    //display_grid(grid, row, column);
+
 
 
     while (true) {
 
-        //string key;
 
-        key = _getch();
+        // animation 
+        for (int ro = 0; ro < 4; ro++) {
 
-        // CLS, Call Grid Function, Sleep, Increment grid[ro + 1][column];
-        // think methodically
+            system("CLS");
+            display_grid(grid, ro, column);
+            std::this_thread::sleep_for(1000ms);
+            grid[ro + 1][column];
 
+            // current problem could be becos theres two counters for row one is in for loop "ro" and other is var "row" or not
 
+             // kkhbit will now contain the getch and other code can run without waiting for keypress
+            if (_kbhit()) {
 
-        if (key == "s") {
-            if (row + 1 < 4) {
-                swap(grid[row][column], grid[row + 1][column]);
-                row++;
+                key = _getch(); // i think this could be causing the problem with not being able to create falling blocks with controls
+
+                if (key == "s") {
+                    if (row + 1 < 4) {
+                        swap(grid[row][column], grid[row + 1][column]);
+                        row++;
+                    }
+
+                    if (row == 3) {
+                        cout << "row index: " << row << "\n" << "column index: " << column;
+                        row = 0;
+                        column = 1;
+                        grid[row][column] = "[]"; // brings [] to the top
+                    }
+                }
+
+                if (key == "d") {
+                    if (column + 1 < 3) { // stops character from going outside grid
+                        swap(grid[row][column], grid[row][column + 1]);
+                        column++;
+                        break;  // whats making break [] go to the top of grid?
+                    }
+                }
+
+                if (key == "a") {
+                    if (column - 1 >= 0) {
+                        swap(grid[row][column], grid[row][column - 1]);
+                        column--;
+                        break;
+
+                    }
+                }
+
+                if (key == "q") {
+                    return 0;
+                }
+
             }
-        
-            // s isnt properly working beacause of this condition. when [] on row == 3 final row the values of arguments update setting 
-            // the value to dissapear from bottom row and appear at top becuase arguments update
-            // maybe store [] of row index 3 in a variable or dict
-            if (row == 3) {
+            //}
 
-                //grid[3][1] = "[]";
-                //grid[row = 3][column] = "[]";
+            //system("CLS");
+            //display_grid(grid);
 
-                cout << "row index: " << row << "\n" << "column index: " << column;
+            //display_grid(grid, row, column);
 
-                //int rr = 3;
-                //int cc = 1;
-                //grid[row = 3][column=1] = "[]";
-                // how to make copy of [] on row 3 location in grid
-
-                row = 0;
-                column = 1;
-                grid[row][column] = "[]"; // brings [] to the top
-                
-                //display_grid(grid, row=0, column=1);
-                
-                //grid[row=3][column] = "[]";
-
-            }
+            //display_grid(grid);
         }
-
-        if (key == "d") {
-
-            if (row == 3) { // i think stops block placed alread at bottom from moving
-                grid[row][column];
-            }
-
-            else if (column + 1 < 3) { // stops character from going outside grid
-                swap(grid[row][column], grid[row][column + 1]);
-                column++;
-            }
-        }
-        if (key == "a") {
-            if (row == 3) {
-                grid[row][column];
-            }
-
-            else if (column - 1 >= 0) {
-                swap(grid[row][column], grid[row][column - 1]);
-                column--;
-            }
-        }
-
-        int ro = 0;
-        int col = 0;
-
-        if (grid[ro + 3][col + 0] == "[]" and grid[ro + 3][col + 1] == "[]" and grid[ro + 3][col + 2] == "[]") {
-
-            grid[ro + 3][col + 0] = "-";
-            grid[ro + 3][col + 1] = "-";
-            grid[ro + 3][col + 2] = "-";
-        }
-
-        if (key == "q") {
-            return 0;
-        }
-
-        system("CLS");
-        //display_grid(grid);
-        display_grid(grid, row, column);
-        //display_grid(grid);
     }
 
 };
