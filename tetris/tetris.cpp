@@ -39,11 +39,11 @@ void display_grid(string _grid[4][3], int r, int c) {
 
 //void display_grid(string _grid[4][3]) {
 
-    for (int row = 0; row < 4; row++) {
-        for (int column = 0; column < 3; column++) {
-            grid[row][column] = ".";
-        }
-    }
+    //for (int row = 0; row < 4; row++) {
+    //    for (int column = 0; column < 3; column++) {
+    //        grid[row][column] = ".";
+    //    }
+    //}
 
     grid[r][c] = "[]";
 
@@ -63,11 +63,11 @@ void display_grid(string _grid[4][3], int r, int c) {
 int main()
 {
 
-    //for (int row = 0; row < 4; row++) {
-    //    for (int column = 0; column < 3; column++) {
-    //        grid[row][column] = ".";
-    //    }
-    //}
+    for (int row = 0; row < 4; row++) {
+        for (int column = 0; column < 3; column++) {
+            grid[row][column] = ".";
+        }
+    }
 
     //int counter = 0;
     
@@ -76,28 +76,60 @@ int main()
     int row = 0;
     int column = 1;
     
-    
-    //grid[row][column] = "[]";
 
+
+    //grid[row][column] = "[]";
     //display_grid(grid);
 
     // arguments here setting the location of []
     //display_grid(grid, row, column);
 
+    //std::this_thread::sleep_for(1000ms);
 
+    int speed = 20;
+    int speedcount = 0;
+    //bool bforcedown = false;
 
     while (true) {
 
+        // using row++ maybe the solution for falling blocks
+        // i think error is happening because row++ is trying to go pass the limit of grid array
+
+        //row++;
+        //std::this_thread::sleep_for(1000ms);
+
+        // falling blocks
+        std::this_thread::sleep_for(50ms); // game tick (every second block will fall)
+        speedcount++;
+
+        if (speedcount == speed) {
+
+            grid[row][column] = "."; // stops duplication of block by replacing them with dot grid
+            
+            if (row + 1 < 4) {
+                row++;
+                //grid[row][column] = "[]";
+
+            }
+
+            speedcount = 0;
+        }
+
+
+
+        //bforcedown = (speedcount == speed);
+
+        //if (speedcount == speed) {
+        //    bforcedown = true;
+        //}
 
         // animation 
-        for (int ro = 0; ro < 4; ro++) {
+        //for (int ro = 0; ro < 4; ro++) {
+        //    system("CLS");
+        //    display_grid(grid, ro, column);
+        //    std::this_thread::sleep_for(1000ms);
+        //    grid[ro + 1][column];
 
-            system("CLS");
-            display_grid(grid, ro, column);
-            std::this_thread::sleep_for(1000ms);
-            grid[ro + 1][column];
-
-            // current problem could be becos theres two counters for row one is in for loop "ro" and other is var "row" or not
 
              // kkhbit will now contain the getch and other code can run without waiting for keypress
             if (_kbhit()) {
@@ -122,7 +154,7 @@ int main()
                     if (column + 1 < 3) { // stops character from going outside grid
                         swap(grid[row][column], grid[row][column + 1]);
                         column++;
-                        break;  // whats making break [] go to the top of grid?
+                        //break;  // whats making break [] go to the top of grid?
                     }
                 }
 
@@ -130,25 +162,39 @@ int main()
                     if (column - 1 >= 0) {
                         swap(grid[row][column], grid[row][column - 1]);
                         column--;
-                        break;
+                        //break;
 
                     }
                 }
 
+                    
                 if (key == "q") {
                     return 0;
                 }
 
+
             }
+
+            // falling blocks
+            //if (speedcount == speed) {
+            //    
+            //    grid[row][column] = ".";
+            //    if (row + 1 < 4) {
+            //        //std::this_thread::sleep_for(200ms);
+            //        row++;
+            //    }
+            //    speedcount = 0;
             //}
 
-            //system("CLS");
-            //display_grid(grid);
+           
+            //}
 
-            //display_grid(grid, row, column);
+            system("CLS");
+            //display_grid(grid);
+            display_grid(grid, row, column);
 
             //display_grid(grid);
-        }
+        //}
     }
 
 };
