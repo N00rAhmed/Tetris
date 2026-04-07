@@ -13,18 +13,16 @@
 
     // make a grid - DONE
     // make square bracket blocks controls(up down left right) in grid - DONE
-    // animate blocks moving from up to down in grid - 
-    // after one block placed generate new block coming from top - DONE
+    // animate blocks moving from up to down in grid - DONE
+    // after one block placed generate new block coming from top - 
     // make blocks stack and place in a row inside grid - IN PROGRESS
     // if row full of blocks then remove them - IN PROGRESS
-
+    // maybe refactor grid rendering logic
 
 using namespace std;
 
 string player;
 
-
-// refactoring grid logic will make it easier to use animation in main()
 
 //string grid[4][3] = {
 //{".", ".", "."},
@@ -68,8 +66,6 @@ int main()
             grid[row][column] = ".";
         }
     }
-
-    //int counter = 0;
     
     string key;
     
@@ -84,57 +80,39 @@ int main()
     // arguments here setting the location of []
     //display_grid(grid, row, column);
 
-    //std::this_thread::sleep_for(1000ms);
 
     int speed = 20;
     int speedcount = 0;
-    //bool bforcedown = false;
 
     while (true) {
 
-        // using row++ maybe the solution for falling blocks
-        // i think error is happening because row++ is trying to go pass the limit of grid array
-
-        //row++;
-        //std::this_thread::sleep_for(1000ms);
 
         // falling blocks
         std::this_thread::sleep_for(50ms); // game tick (every second block will fall)
         speedcount++;
 
         if (speedcount == speed) {
-
+            speedcount = 0;
             grid[row][column] = "."; // stops duplication of block by replacing them with dot grid
-            
+
             if (row + 1 < 4) {
                 row++;
-                //grid[row][column] = "[]";
-
             }
 
-            speedcount = 0;
         }
 
 
-
-        //bforcedown = (speedcount == speed);
-
-        //if (speedcount == speed) {
-        //    bforcedown = true;
+        //if (grid[row + 3][column + 0] == "[]" and grid[row + 3][column + 1] == "[]" and grid[row + 3][column + 2] == "[]") {
+        //    grid[row + 3][column + 0] = "-";
+        //    grid[row + 3][column + 1] = "-";
+        //    grid[row + 3][column + 2] = "-";
         //}
-
-        // animation 
-        //for (int ro = 0; ro < 4; ro++) {
-        //    system("CLS");
-        //    display_grid(grid, ro, column);
-        //    std::this_thread::sleep_for(1000ms);
-        //    grid[ro + 1][column];
 
 
              // kkhbit will now contain the getch and other code can run without waiting for keypress
             if (_kbhit()) {
 
-                key = _getch(); // i think this could be causing the problem with not being able to create falling blocks with controls
+                key = _getch();
 
                 if (key == "s") {
                     if (row + 1 < 4) {
@@ -154,7 +132,6 @@ int main()
                     if (column + 1 < 3) { // stops character from going outside grid
                         swap(grid[row][column], grid[row][column + 1]);
                         column++;
-                        //break;  // whats making break [] go to the top of grid?
                     }
                 }
 
@@ -162,39 +139,20 @@ int main()
                     if (column - 1 >= 0) {
                         swap(grid[row][column], grid[row][column - 1]);
                         column--;
-                        //break;
-
                     }
                 }
-
                     
                 if (key == "q") {
                     return 0;
                 }
 
-
             }
 
-            // falling blocks
-            //if (speedcount == speed) {
-            //    
-            //    grid[row][column] = ".";
-            //    if (row + 1 < 4) {
-            //        //std::this_thread::sleep_for(200ms);
-            //        row++;
-            //    }
-            //    speedcount = 0;
-            //}
-
-           
-            //}
 
             system("CLS");
             //display_grid(grid);
             display_grid(grid, row, column);
-
             //display_grid(grid);
-        //}
     }
 
 };
