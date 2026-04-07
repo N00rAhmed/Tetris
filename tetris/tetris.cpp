@@ -15,9 +15,9 @@
     // make square bracket blocks controls(up down left right) in grid - DONE
     // animate blocks moving from up to down in grid - DONE
     // after one block placed generate new block coming from top - 
-    // make blocks stack and place in a row inside grid - IN PROGRESS
-    // if row full of blocks then remove them - IN PROGRESS
-    // maybe refactor grid rendering logic
+    // make blocks stack and place in a row inside grid - 
+    // if row full of blocks then remove them - 
+
 
 using namespace std;
 
@@ -91,23 +91,6 @@ int main()
         std::this_thread::sleep_for(50ms); // game tick (every second block will fall)
         speedcount++;
 
-        if (speedcount == speed) {
-            speedcount = 0;
-            grid[row][column] = "."; // stops duplication of block by replacing them with dot grid
-
-            if (row + 1 < 4) {
-                row++;
-            }
-
-        }
-
-
-        //if (grid[row + 3][column + 0] == "[]" and grid[row + 3][column + 1] == "[]" and grid[row + 3][column + 2] == "[]") {
-        //    grid[row + 3][column + 0] = "-";
-        //    grid[row + 3][column + 1] = "-";
-        //    grid[row + 3][column + 2] = "-";
-        //}
-
 
              // kkhbit will now contain the getch and other code can run without waiting for keypress
             if (_kbhit()) {
@@ -147,6 +130,50 @@ int main()
                 }
 
             }
+
+
+            if (speedcount == speed) {
+                speedcount = 0;
+                grid[row][column] = "."; // stops duplication of block by replacing them with dot grid
+
+                if (row + 1 < 4) {
+                    row++;
+                    grid[row][column] = "[]";
+                }
+
+                if (row == 3) {
+                    //cout << "row index: " << row << "\n" << "column index: " << column;
+                    row = 0;
+                    column = 1;
+                    grid[row][column] = "[]"; // brings [] to the top
+                }
+
+                //if (grid[row=3][column=1] == "[]") {
+                //    grid[row=3][column=1] = "-";
+                //}
+
+            }
+
+
+            //if (grid[row + 3][column + 0] == "[]") {
+            //    grid[row + 3][column + 0] = "-";
+            //}
+
+
+            //if (grid[row + 3][column + 0] == "[]") {
+                //if (row + 1 < 4) {
+                    //swap(grid[row][column], grid[row + 1][column]);
+                    //grid[row + 3][column + 0] = "-";
+                    //row++;
+                //}
+            //}
+
+            //if (grid[row + 3][column + 0] == "[]" and grid[row + 3][column + 1] == "[]" and grid[row + 3][column + 2] == "[]") {
+            //    grid[row + 3][column + 0] = "-";
+            //    grid[row + 3][column + 1] = "-";
+            //    grid[row + 3][column + 2] = "-";
+            //}
+
 
 
             system("CLS");
