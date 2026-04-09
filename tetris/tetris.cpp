@@ -6,7 +6,10 @@
 #include <string>
 #include <windows.h>
 #include <conio.h>
+#include <chrono>
 #include <thread>
+#include <cstdio>
+
 //#include <ctime>
 //#include <chrono>
 
@@ -14,7 +17,7 @@
     // make a grid - DONE
     // make square bracket blocks controls(up down left right) in grid - DONE
     // animate blocks moving from up to down in grid - DONE
-    // after one block placed generate new block coming from top - 
+    // after one block placed generate new block coming from top - DONE
     // make blocks stack and place in a row inside grid - 
     // if row full of blocks then remove them - 
 
@@ -131,18 +134,73 @@ int main()
 
             }
 
+            //printf("hello");
+            //std::this_thread::sleep_for(500ms);
+            //printf("\rbye");
+            //std::this_thread::sleep_for(500ms);
+
 
             if (speedcount == speed) {
+
+                if (grid[3][0] == "[]" and grid[3][1] == "[]" and grid[3][2] == "[]") {
+                    //grid[row + 3][column + 0] = "-";
+                    //grid[row + 3][column + 1] = "-";
+                    //grid[row + 3][column + 2] = "-";
+                    grid[3][0] = "-";
+                    grid[3][1] = "-";
+                    grid[3][2] = "-";
+                }
+
+
                 speedcount = 0;
                 grid[row][column] = "."; // stops duplication of block by replacing them with dot grid
 
                 if (row + 1 < 4) {
                     row++;
                     grid[row][column] = "[]";
+
+                    //std::this_thread::sleep_for(500ms);
+                    //grid[row][column] = "\r-";
+
+                    //std::this_thread::sleep_for(100ms);
+                    //system("CLS");
+                    //cout << (grid[row][column] = "-");
+                    //std::this_thread::sleep_for(100ms);
+                    //system("CLS");
+                    //cout << (grid[row][column] = "x");
+
+
+                    //std::this_thread::sleep_for(100ms);
+                    //grid[row][column] = "-";
                 }
+
+                //if (grid[3][0] == "[]" and grid[3][1] == "[]" and grid[3][2] == "[]") {
+                //    //grid[row + 3][column + 0] = "-";
+                //    //grid[row + 3][column + 1] = "-";
+                //    //grid[row + 3][column + 2] = "-";
+                //    grid[3][0] = "-";
+                //    grid[3][1] = "-";
+                //    grid[3][2] = "-";
+                //}
+
+                
+                //auto timee = std::this_thread::sleep_for(100ms);
+
+                //auto start = std::chrono::steady_clock::now();
+                //std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                //auto end = std::chrono::steady_clock::now();
+                //auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+                //duration.count();
+
+                //if (row == 3 && duration) {
+
+                //}
 
                 if (row == 3) {
                     //cout << "row index: " << row << "\n" << "column index: " << column;
+                    //std::this_thread::sleep_for(500ms);
+                    //this_thread::sleep_for(chrono::milliseconds(5000));
+
                     row = 0;
                     column = 1;
                     grid[row][column] = "[]"; // brings [] to the top
@@ -153,6 +211,7 @@ int main()
                 //}
 
             }
+
 
 
             //if (grid[row + 3][column + 0] == "[]") {
@@ -181,7 +240,5 @@ int main()
             display_grid(grid, row, column);
             //display_grid(grid);
     }
-
 };
-
 
