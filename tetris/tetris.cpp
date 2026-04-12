@@ -33,10 +33,11 @@ string player;
 //{".", ".", "."}
 //};
 
-string grid[4][3];
+//string grid[4][3];
+string grid[15][5];
 //string grid[19][10];
 
-void display_grid(string _grid[4][3], int r, int c) {
+void display_grid(string _grid[15][5], int r, int c) {
 
 //void display_grid(string _grid[4][3]) {
 
@@ -50,7 +51,7 @@ void display_grid(string _grid[4][3], int r, int c) {
     //grid[0][1] = "[]";
 
 
-    for (int row = 0; row < 4; row++) {
+    for (int row = 0; row < 15; row++) {
 
         //cout << setw(5);
         cout << "\t" << "\t" << "\t" << "\t" << "\t" << "\t" ;
@@ -58,7 +59,7 @@ void display_grid(string _grid[4][3], int r, int c) {
         //cout << '#';
         cout << "<!";
 
-        for (int column = 0; column < 3; column++) {
+        for (int column = 0; column < 5; column++) {
             cout << " " << grid[row][column];
         }
 
@@ -79,8 +80,8 @@ void display_grid(string _grid[4][3], int r, int c) {
 int main()
 {
 
-    for (int row = 0; row < 4; row++) {
-        for (int column = 0; column < 3; column++) {
+    for (int row = 0; row < 15; row++) {
+        for (int column = 0; column < 5; column++) {
             grid[row][column] = ". ";
         }
     }
@@ -88,7 +89,7 @@ int main()
     string key;
 
     int row = 0;
-    int column = 1;
+    int column = 2;
     
     int speed = 20;
     int speedcount = 0;
@@ -108,12 +109,12 @@ int main()
                 key = _getch();
 
                 if (key == "s") {
-                    if (row + 1 < 4) {
+                    if (row + 1 < 15) {
                         swap(grid[row][column], grid[row + 1][column]);
                         row++;
                     }
 
-                    if (row == 3) {
+                    if (row == 14) {
                         cout << "row index: " << row << "\n" << "column index: " << column;
                         row = 0;
                         column = 1;
@@ -122,7 +123,7 @@ int main()
                 }
 
                 if (key == "d") {
-                    if (column + 1 < 3) { // stops character from going outside grid
+                    if (column + 1 < 5) { // stops character from going outside grid
                         swap(grid[row][column], grid[row][column + 1]);
                         column++;
                     }
@@ -148,20 +149,22 @@ int main()
                 grid[row][column] = ". "; // stops duplication of block by replacing them with dot grid
 
 
-                if (grid[3][0] == "[]" and grid[3][1] == "[]" and grid[3][2] == "[]") {
-                    grid[3][0] = ". ";
-                    grid[3][1] = ". ";
-                    grid[3][2] = ". ";
+                if (grid[14][0] == "[]" and grid[14][1] == "[]" and grid[14][2] == "[]" and grid[14][3] == "[]" and grid[14][4] == "[]") {
+                    grid[14][0] = ". ";
+                    grid[14][1] = ". ";
+                    grid[14][2] = ". ";
+                    grid[14][3] = ". ";
+                    grid[14][4] = ". ";
                 }
 
-                if (row + 1 < 4 && grid[row+1][column] == ". ") {
+                if (row + 1 < 15 && grid[row+1][column] == ". ") {
                     row++;
                     //grid[row][column] = "[]";
                 }
                 else {
                     grid[row][column] = "[]"; // lock peice
                     row = 0; // spawn new piece at top
-                    column = 1;
+                    column = 2;
                 }
 
                 //if (row == 3) {
