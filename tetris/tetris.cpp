@@ -32,6 +32,7 @@ string player;
 //};
 
 string grid[4][3];
+//string grid[19][10];
 
 void display_grid(string _grid[4][3], int r, int c) {
 
@@ -44,6 +45,7 @@ void display_grid(string _grid[4][3], int r, int c) {
     //}
 
     grid[r][c] = "[]";
+    //grid[0][1] = "[]";
 
 
     for (int row = 0; row < 4; row++) {
@@ -55,7 +57,14 @@ void display_grid(string _grid[4][3], int r, int c) {
             //cout << "#";
             cout << "\t" << grid[row][column];
         }
+        //cout << ">" << "\n";
+        //cout << "<";
+
+        //cout << ">" << "\n" << "\n" << "<";
         cout << "\n" << "\n";
+        //cout << "<";
+
+        //cout << endl;
         //cout << "\t" << "\t";
 
     }
@@ -74,10 +83,13 @@ int main()
     }
     
     string key;
+
     int row = 0;
     int column = 1;
+    
     int speed = 20;
     int speedcount = 0;
+
 
     while (true) {
 
@@ -129,41 +141,38 @@ int main()
 
             if (speedcount == speed) {
 
+                speedcount = 0;
+                grid[row][column] = "."; // stops duplication of block by replacing them with dot grid
+
+
                 if (grid[3][0] == "[]" and grid[3][1] == "[]" and grid[3][2] == "[]") {
-                    //grid[row + 3][column + 0] = "-";
-                    //grid[row + 3][column + 1] = "-";
-                    //grid[row + 3][column + 2] = "-";
                     grid[3][0] = ".";
                     grid[3][1] = ".";
                     grid[3][2] = ".";
                 }
 
-
-                //if (grid[3][0] == "[]") {
-                //    //grid[row-1][column] = "[]";
-                //    //row++;
-                //    grid[2][0] = "[]";
-                //}
-
-
-                speedcount = 0;
-                grid[row][column] = "."; // stops duplication of block by replacing them with dot grid
-
-                if (row + 1 < 4) {
+                if (row + 1 < 4 && grid[row+1][column] == ".") {
                     row++;
-                    grid[row][column] = "[]";
+                    //grid[row][column] = "[]";
                 }
-                
-                if (row == 3) {
-                    row = 0;
+                else {
+                    grid[row][column] = "[]"; // lock peice
+                    row = 0; // spawn new piece at top
                     column = 1;
-                    grid[row][column] = "[]"; // brings [] to the top
                 }
+
+                //if (row == 3) {
+                    //grid[row][column] = "[]";
+                    //row = 0;
+                    //column = 1;
+                    //grid[row][column] = "[]"; // brings [] to the top
+                //}
 
 
             }
 
-            system("CLS");
+            system("CLS"); // clears grid
+            //display_grid(grid);
             display_grid(grid, row, column);
     }
 };
