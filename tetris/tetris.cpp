@@ -10,6 +10,8 @@
 #include <thread>
 #include <cstdio>
 
+#include <iomanip>
+#include <ios>
 
     // make a grid - DONE
     // make square bracket blocks controls(up down left right) in grid - DONE
@@ -50,22 +52,23 @@ void display_grid(string _grid[4][3], int r, int c) {
 
     for (int row = 0; row < 4; row++) {
 
-        //cout << "#";
+        //cout << setw(5);
+        cout << "\t" << "\t" << "\t" << "\t" << "\t" << "\t" ;
+
+        //cout << '#';
+        cout << "<!";
 
         for (int column = 0; column < 3; column++) {
-            //grid[0][1] = "[]";
-            //cout << "#";
-            cout << "\t" << grid[row][column];
+            cout << " " << grid[row][column];
         }
-        //cout << ">" << "\n";
-        //cout << "<";
 
-        //cout << ">" << "\n" << "\n" << "<";
-        cout << "\n" << "\n";
-        //cout << "<";
-
+        cout << setw(1) << "!>";
+        //cout << setw(1) << '#';
+        //cout << setw(4) << '#';
         //cout << endl;
-        //cout << "\t" << "\t";
+
+        //cout << "\n" << "\n";
+        cout << "\n";
 
     }
 
@@ -78,7 +81,7 @@ int main()
 
     for (int row = 0; row < 4; row++) {
         for (int column = 0; column < 3; column++) {
-            grid[row][column] = ".";
+            grid[row][column] = ". ";
         }
     }
     
@@ -142,16 +145,16 @@ int main()
             if (speedcount == speed) {
 
                 speedcount = 0;
-                grid[row][column] = "."; // stops duplication of block by replacing them with dot grid
+                grid[row][column] = ". "; // stops duplication of block by replacing them with dot grid
 
 
                 if (grid[3][0] == "[]" and grid[3][1] == "[]" and grid[3][2] == "[]") {
-                    grid[3][0] = ".";
-                    grid[3][1] = ".";
-                    grid[3][2] = ".";
+                    grid[3][0] = ". ";
+                    grid[3][1] = ". ";
+                    grid[3][2] = ". ";
                 }
 
-                if (row + 1 < 4 && grid[row+1][column] == ".") {
+                if (row + 1 < 4 && grid[row+1][column] == ". ") {
                     row++;
                     //grid[row][column] = "[]";
                 }
