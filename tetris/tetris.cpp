@@ -9,16 +9,10 @@
 #include <chrono>
 #include <thread>
 #include <cstdio>
-
 #include <iomanip>
 #include <ios>
-
-    // make a grid - DONE
-    // make square bracket blocks controls(up down left right) in grid - DONE
-    // animate blocks moving from up to down in grid - DONE
-    // after one block placed generate new block coming from top - DONE
-    // make blocks stack and place in a row inside grid - 
-    // if row full of blocks then remove them - DONE
+#include <vector>
+#include <algorithm>
 
 
 using namespace std;
@@ -103,6 +97,7 @@ int main()
         speedcount++;
 
 
+
              // kkhbit will now contain the getch and other code can run without waiting for keypress
             if (_kbhit()) {
 
@@ -117,7 +112,7 @@ int main()
                     if (row == 14) {
                         cout << "row index: " << row << "\n" << "column index: " << column;
                         row = 0;
-                        column = 1;
+                        column = 2;
                         grid[row][column] = "[]"; // brings [] to the top
                     }
                 }
@@ -148,7 +143,6 @@ int main()
                 speedcount = 0;
                 grid[row][column] = ". "; // stops duplication of block by replacing them with dot grid
 
-
                 if (grid[14][0] == "[]" and grid[14][1] == "[]" and grid[14][2] == "[]" and grid[14][3] == "[]" and grid[14][4] == "[]") {
                     grid[14][0] = ". ";
                     grid[14][1] = ". ";
@@ -157,9 +151,8 @@ int main()
                     grid[14][4] = ". ";
                 }
 
-                if (row + 1 < 15 && grid[row+1][column] == ". ") {
+                if (row + 1 < 15 and grid[row+1][column] == ". ") {
                     row++;
-                    //grid[row][column] = "[]";
                 }
                 else {
                     grid[row][column] = "[]"; // lock peice
@@ -167,13 +160,17 @@ int main()
                     column = 2;
                 }
 
-                //if (row == 3) {
-                    //grid[row][column] = "[]";
-                    //row = 0;
-                    //column = 1;
-                    //grid[row][column] = "[]"; // brings [] to the top
-                //}
+                //if (grid[row = 13][column] == "[]" and grid[row + 1][column] == ". ") {
+                //if (grid[13][0] == "[]") {
+                //cout << row;
 
+                if (grid[13][0] == "[]" and grid[14][0] == ". ") {
+                    grid[13][0] = ". ";
+                    grid[14][0] = "[]";
+                    //grid[row < 14][column] = ".";
+                    //grid[14][0] = "[]";
+                    //row++;
+                }
 
             }
 
@@ -182,4 +179,5 @@ int main()
             display_grid(grid, row, column);
     }
 };
+
 
