@@ -163,15 +163,30 @@ int main()
                 //if (grid[row = 13][column] == "[]" and grid[row + 1][column] == ". ") {
                 //if (grid[13][0] == "[]") {
                 //cout << row;
+            }
+
+            if (speedcount == 10) {
 
                 if (grid[13][0] == "[]" and grid[14][0] == ". ") {
                     grid[13][0] = ". ";
                     grid[14][0] = "[]";
-                    //grid[row < 14][column] = ".";
-                    //grid[14][0] = "[]";
-                    //row++;
                 }
-
+                if (grid[13][1] == "[]" and grid[14][1] == ". ") {
+                    grid[13][1] = ". ";
+                    grid[14][1] = "[]";
+                }
+                if (grid[13][2] == "[]" and grid[14][2] == ". ") {
+                    grid[13][2] = ". ";
+                    grid[14][2] = "[]";
+                }
+                if (grid[13][3] == "[]" and grid[14][3] == ". ") {
+                    grid[13][3] = ". ";
+                    grid[14][3] = "[]";
+                }
+                if (grid[13][4] == "[]" and grid[14][4] == ". ") {
+                    grid[13][4] = ". ";
+                    grid[14][4] = "[]";
+                }
             }
 
             system("CLS"); // clears grid
