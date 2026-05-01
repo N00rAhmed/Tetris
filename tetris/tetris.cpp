@@ -164,28 +164,18 @@ int main()
                 //if (grid[13][0] == "[]") {
                 //cout << row;
             }
+            
+            //int NROW = 0;
+            //int NCOLUMN = 0;
 
             if (speedcount == 10) {
 
+                grid[row][column] = ". "; 
+
                 if (grid[13][0] == "[]" and grid[14][0] == ". ") {
+                    //grid[13][0] = ". "; // we get to this position and for some reason block is  duplicated from 13 0 to bottom 
                     grid[13][0] = ". ";
                     grid[14][0] = "[]";
-                }
-                if (grid[13][1] == "[]" and grid[14][1] == ". ") {
-                    grid[13][1] = ". ";
-                    grid[14][1] = "[]";
-                }
-                if (grid[13][2] == "[]" and grid[14][2] == ". ") {
-                    grid[13][2] = ". ";
-                    grid[14][2] = "[]";
-                }
-                if (grid[13][3] == "[]" and grid[14][3] == ". ") {
-                    grid[13][3] = ". ";
-                    grid[14][3] = "[]";
-                }
-                if (grid[13][4] == "[]" and grid[14][4] == ". ") {
-                    grid[13][4] = ". ";
-                    grid[14][4] = "[]";
                 }
             }
 
